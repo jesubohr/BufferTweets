@@ -1,0 +1,41 @@
+<% if flash[:alert_title] %>
+  <div
+    role="alert"
+    class="
+      flex
+      flex-col
+      justify-center
+      mb-4
+      p-4
+      w-full
+      
+      <% if flash[:alert_type] == "error" %>
+      bg-red-100
+      dark:bg-red-900
+      border-red-500
+      text-red-800
+      dark:text-red-100
+      <% end %>
+
+      <% if flash[:alert_type] == "success" %>
+      bg-teal-100
+      dark:bg-teal-900
+      border-teal-500
+      text-teal-800
+      dark:text-teal-100
+      <% end %>
+
+      border-l-4
+      rounded
+      z-50
+    "
+  >
+    <strong class="block font-semibold">
+      <%= flash[:alert_title] %>
+    </strong>
+
+    <p class="text-sm opacity-90">
+      <%= flash[:alert_message] %>
+    </p>
+  </div>
+<% end %>
