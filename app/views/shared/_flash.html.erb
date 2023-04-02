@@ -30,6 +30,14 @@
       dark:text-teal-50
       <% end %>
 
+      <% if flash[:alert_type] == "info" %>
+      bg-blue-100
+      dark:bg-blue-900
+      border-blue-500
+      text-blue-800
+      dark:text-blue-50
+      <% end %>
+
       border-l-4
       rounded
       z-50
