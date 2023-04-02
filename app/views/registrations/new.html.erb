@@ -8,9 +8,9 @@
 
   <%= form_with model: @user, url: sign_up_path, class: "flex flex-col gap-2 mx-auto mt-8 max-w-md dark:text-white" do |form| %>
     <%# Error Displaying %>
-    <% if @user.errors.any? %>
+    <% if form.object.errors.any? %>
       <div class="absolute top-10 left-0 flex flex-col gap-3 z-10">
-        <% @user.errors.full_messages.each do |message| %>
+        <% form.object.errors.full_messages.each do |message| %>
           <div
             class="relative flex items-center gap-3 justify-between bg-red-100 dark:bg-red-900 rounded-lg p-4 text-sm text-red-800 dark:text-red-50"
             role="alert"
