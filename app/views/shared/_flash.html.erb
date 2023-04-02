@@ -7,33 +7,31 @@
       left-0
       self-start
       flex
-      flex-col
-      justify-center
+      items-center
+      gap-2
       mb-4
       p-4
       w-full
       max-w-sm
-      
+
       <% if flash[:alert_type] == "error" %>
-      bg-red-100
+      bg-red-200
       dark:bg-red-900
-      border-red-500
+      border-red-600
       text-red-800
       dark:text-red-50
       <% end %>
-
       <% if flash[:alert_type] == "success" %>
-      bg-teal-100
+      bg-teal-200
       dark:bg-teal-900
-      border-teal-500
+      border-teal-600
       text-teal-800
       dark:text-teal-50
       <% end %>
-
       <% if flash[:alert_type] == "info" %>
-      bg-blue-100
+      bg-blue-200
       dark:bg-blue-900
-      border-blue-500
+      border-blue-600
       text-blue-800
       dark:text-blue-50
       <% end %>
@@ -43,40 +41,36 @@
       z-50
     "
   >
-    <strong class="block font-semibold">
-      <%= flash[:alert_title] %>
-    </strong>
+    <div>
+      <strong class="block font-semibold text-[1.05rem]">
+        <%= flash[:alert_title] %>
+      </strong>
 
-    <p class="text-sm opacity-90">
-      <%= flash[:alert_message] %>
-    </p>
+      <p class="text-sm opacity-90">
+        <%= flash[:alert_message] %>
+      </p>
+    </div>
 
     <button
       type="button"
       data-dismiss="alert"
       aria-label="Close"
       class="
-        absolute
-        self-end
-        text-gray-200
-        hover:text-gray-300
-        focus-visible:text-gray-50
+        dark:text-gray-100
         focus-visible:outline-2
         focus-visible:outline-dashed
-        focus-visible:outline-gray-100
+        focus-visible:outline-current
       "
       onclick="this.parentElement.remove()"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="h-5 w-5"
+        class="h-6 w-6"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
       >
         <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
           stroke-width="2"
           d="M6 18L18 6M6 6l12 12"
         />
