@@ -2,19 +2,24 @@
   <div
     role="alert"
     class="
+      absolute
+      top-10
+      left-0
+      self-start
       flex
       flex-col
       justify-center
       mb-4
       p-4
       w-full
+      max-w-sm
       
       <% if flash[:alert_type] == "error" %>
       bg-red-100
       dark:bg-red-900
       border-red-500
       text-red-800
-      dark:text-red-100
+      dark:text-red-50
       <% end %>
 
       <% if flash[:alert_type] == "success" %>
@@ -22,7 +27,7 @@
       dark:bg-teal-900
       border-teal-500
       text-teal-800
-      dark:text-teal-100
+      dark:text-teal-50
       <% end %>
 
       border-l-4
@@ -37,5 +42,37 @@
     <p class="text-sm opacity-90">
       <%= flash[:alert_message] %>
     </p>
+
+    <button
+      type="button"
+      data-dismiss="alert"
+      aria-label="Close"
+      class="
+        absolute
+        self-end
+        text-gray-200
+        hover:text-gray-300
+        focus-visible:text-gray-50
+        focus-visible:outline-2
+        focus-visible:outline-dashed
+        focus-visible:outline-gray-100
+      "
+      onclick="this.parentElement.remove()"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
   </div>
 <% end %>
