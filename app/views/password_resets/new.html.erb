@@ -1,0 +1,47 @@
+<div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-lg text-center">
+    <h1 class="dark:text-white text-2xl font-bold sm:text-4xl">Forgot your password?</h1>
+    <p class="mt-4 text-gray-400">
+      Enter your email address and we'll send you a link to reset your password.
+    </p>
+  </div>
+
+  <%= form_with url: password_reset_path, class: "flex flex-col gap-2 mx-auto mt-8 max-w-md dark:text-white" do |form| %>
+    <div class="flex flex-col gap-1">
+      <%= form.label :email, class: "ml-0.5" %>
+      <div class="relative dark:text-white">
+        <%= form.text_field :email,
+                        placeholder: "e.g. john@doe.co",
+                        class:
+                          "px-4 py-3 pr-12 w-full rounded-md dark:bg-gray-700 border-2 border-gray-400 dark:border-gray-800 shadow-sm placeholder:text-gray-400" %>
+        <span class="absolute inset-y-0 right-0 grid place-content-center px-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 text-gray-500 dark:text-gray-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+
+    <div class="mt-2 flex items-center justify-between">
+      <p class="text-sm text-gray-400">
+        Remember your password?
+        <a class="underline" href="/sign-in">Sign in</a>
+      </p>
+
+      <%= form.submit "Reset Password",
+                  class:
+                    "inline-block rounded-md bg-teal-600 px-5 py-2.5 font-medium text-white transition hover:bg-teal-700 dark:bg-teal-700 dark:hover:bg-teal-600 cursor-pointer" %>
+    </div>
+  <% end %>
+</div>
