@@ -1,9 +1,91 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <style>
-      /* Email styles need to be inline */
+      h1, p {
+        margin-block: 0;
+      }
+
+      .mail-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-block: 2rem;
+        width: 100%;
+        height: 100%;
+        background-color: hsl(175, 90%, 95%);
+      }
+
+      .logo {
+        color: hsl(175, 90%, 35%);
+        margin-bottom: 1rem;
+      }
+
+      .mail-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        margin: 0 auto;
+        padding: 2rem 4rem;
+        max-width: 60ch;
+        background-color: white;
+        border-top: 4px solid hsl(175, 90%, 35%);
+        border-bottom: 4px solid hsla(175, 90%, 35%, 0.4);
+        text-align: center;
+      }
+
+      .mail-content .title {
+        color: #222;
+        font-size: 2rem;
+        font-weight: 600;
+      }
+
+      .email-alternate-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        width: 100%;
+      }
+
+      .email-alternate-link .description {
+        color: #444;
+        font-weight: 500;
+      }
+
+      .email-alternate-link a {
+        color: hsl(175, 90%, 30%);
+        overflow-wrap: anywhere;
+      }
+
+      .link-button {
+        width: fit-content;
+        padding-block: 0.7rem;
+        padding-inline: 1.5rem;
+        color: white;
+        background-color: hsl(175, 90%, 35%);
+        border-radius: 5px;
+        font-size: 1.125rem;
+        font-weight: 500;
+        line-height: 1.75rem;
+        text-decoration: none;
+      }
+
+      .email-footer {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        color: #4f4f4f;
+        font-size: 0.9rem;
+      }
+
+      .email-footer p:last-of-type {
+        color: #222;
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
     </style>
   </head>
 
