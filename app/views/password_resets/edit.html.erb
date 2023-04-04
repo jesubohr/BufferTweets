@@ -1,0 +1,83 @@
+<div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-lg text-center">
+    <h1 class="dark:text-white text-2xl font-bold sm:text-4xl">Reset your password</h1>
+    <p class="mt-4 text-gray-400">
+      Have in mind that your password must be at least 8 characters long and must contain at least one uppercase letter, one lowercase letter, one number and one special character.
+    </p>
+  </div>
+
+  <%= form_with model: @user, url: password_reset_edit_path(token: params[:token]), class: "flex flex-col gap-2 mx-auto mt-8 max-w-md dark:text-white" do |form| %>
+    <%# Error Displaying %>
+    <%= render partial: "shared/form_errors", locals: { form: form } %>
+
+    <div class="flex flex-col gap-1">
+      <%= form.label :password, class: "ml-0.5" %>
+      <div class="relative dark:text-white">
+        <%= form.password_field :password,
+                            placeholder: "e.g. J0hn-B3st-C0d3r",
+                            class:
+                              "px-4 py-3 pr-12 w-full rounded-md dark:bg-gray-700 border-2 border-gray-400 dark:border-gray-800 shadow-sm placeholder:text-gray-400" %>
+        <span class="absolute inset-y-0 right-0 grid place-content-center px-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 text-gray-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-1">
+      <%= form.label :password_confirmation, class: "ml-0.5" %>
+      <div class="relative dark:text-white">
+        <%= form.password_field :password_confirmation,
+                            placeholder: "e.g. J0hn-B3st-C0d3r",
+                            class:
+                              "px-4 py-3 pr-12 w-full rounded-md dark:bg-gray-700 border-2 border-gray-400 dark:border-gray-800 shadow-sm placeholder:text-gray-400" %>
+        <span class="absolute inset-y-0 right-0 grid place-content-center px-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 text-gray-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+
+    <div class="mt-2 flex items-center justify-between">
+      <%= form.submit "Reset Password",
+                  class:
+                    "grow inline-block rounded-md bg-teal-600 px-5 py-2.5 font-medium text-white transition hover:bg-teal-700 dark:bg-teal-700 dark:hover:bg-teal-600 cursor-pointer" %>
+    </div>
+  <% end %>
+</div>
