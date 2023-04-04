@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'password/reset', to: 'password_resets#new', as: :password_reset
   post 'password/reset', to: 'password_resets#create'
+  get 'password/reset/edit', to: 'password_resets#edit', as: :password_reset_edit
+  patch 'password/reset/edit', to: 'password_resets#update'
 
   get 'sign-up', to: 'registrations#new', as: :sign_up
   post 'sign-up', to: 'registrations#create'
