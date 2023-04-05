@@ -15,10 +15,4 @@ class PasswordsController < ApplicationController
       render :edit, status: 400
     end
   end
-
-  private
-
-  def password_params
-    params.require(:user).permit(:password, :password_confirmation)
-  end
 end

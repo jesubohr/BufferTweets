@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
     redirect_to root_path, flash: {
       alert_title: 'You are already logged in',
-      alert_message: 'You can log out below',
+      alert_message: 'You can log out in your profile.',
       alert_type: 'info'
     }
   end
@@ -42,7 +42,7 @@ class SessionsController < ApplicationController
   def not_logged_in
     redirect_to sign_in_path, flash: {
       alert_title: 'Invalid email or password',
-      alert_message: 'Please try again',
+      alert_message: 'Please try again!',
       alert_type: 'error'
     }
   end

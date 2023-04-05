@@ -8,10 +8,7 @@ class RegistrationsController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      flash[:alert_title] = 'Thank you for signing up!'
-      flash[:alert_message] = 'You are now signed up and logged in.'
-      flash[:alert_type] = 'success'
-      redirect_to root_path
+      signed_up_redirect
     else
       render :new, status: 400
     end
@@ -19,7 +16,11 @@ class RegistrationsController < ApplicationController
 
   private
 
-  def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+  def signed_up_redirect
+    redirect_to root_path, flash: {
+      alert_title: 'Thank you for signing up!',
+      alert_message: 'You are now signed up and logged in.',
+      alert_type: 'success'
+    }
   end
 end

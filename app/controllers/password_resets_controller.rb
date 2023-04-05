@@ -4,11 +4,7 @@ class PasswordResetsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:email])
-    redirect_to root_path, flash: {
-      alert_title: 'Password reset email sent!',
-      alert_message: 'If an account exists with that email, you will receive a password reset email shortly.',
-      alert_type: 'info'
-    }
+    email_sent_redirect
     return unless @user.present?
 
     PasswordMailer.with(user: @user).reset.deliver_later
@@ -36,10 +32,6 @@ class PasswordResetsController < ApplicationController
 
   private
 
-  def password_params
-    params.require(:user).permit(:password, :password_confirmation)
-  end
-
   def passwords_not_empty?
     return if password_params.values.all?(&:present?)
 
@@ -54,6 +46,14 @@ class PasswordResetsController < ApplicationController
     false
   end
 
+  def email_sent_redirect
+    redirect_to root_path, flash: {
+      alert_title: 'Password reset email sent!',
+      alert_message: 'If an account exists with that email, you will receive a password reset email shortly.',
+      alert_type: 'info'
+    }
+  end
+
   def password_reset_redirect
     redirect_to sign_in_path, flash: {
       alert_title: 'Password reset!',
@@ -65,7 +65,7 @@ class PasswordResetsController < ApplicationController
   def invalid_token_redirect
     redirect_to sign_in_path, flash: {
       alert_title: 'Invalid token!',
-      alert_message: 'The password reset link you used is invalid. Please try again.',
+      alert_message: 'The password reset link you used is invalid. Please try again!',
       alert_type: 'error'
     }
   end

@@ -24,8 +24,16 @@ class ApplicationController < ActionController::Base
 
     redirect_to sign_in_path, flash: {
       alert_title: 'You must be logged in to do that',
-      alert_message: 'Please log in or sign up',
+      alert_message: 'Please log in or sign up.',
       alert_type: 'error'
     }
+  end
+
+  def password_params
+    params.require(:user).permit(:password, :password_confirmation)
+  end
+
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 end
