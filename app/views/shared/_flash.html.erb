@@ -8,45 +8,52 @@
       self-start
       flex
       items-center
-      gap-2
-      mb-4
+      gap-10
       p-4
-      w-full
-      max-w-sm
-
+      rounded-lg
+      z-10
       <% if flash[:alert_type] == "error" %>
       bg-red-200
-      dark:bg-red-900
+      dark:bg-red-800
       border-red-600
       text-red-800
       dark:text-red-50
       <% end %>
       <% if flash[:alert_type] == "success" %>
       bg-teal-200
-      dark:bg-teal-900
+      dark:bg-teal-800
       border-teal-600
       text-teal-800
       dark:text-teal-50
       <% end %>
       <% if flash[:alert_type] == "info" %>
       bg-blue-200
-      dark:bg-blue-900
+      dark:bg-blue-800
       border-blue-600
       text-blue-800
       dark:text-blue-50
       <% end %>
-
-      border-l-4
-      rounded
-      z-50
+      transition-transform
+      focus-within:scale-105
     "
   >
-    <div>
-      <strong class="block font-semibold text-[1.05rem]">
-        <%= flash[:alert_title] %>
-      </strong>
-
-      <p class="text-sm opacity-90">
+    <div class="flex items-start gap-2">
+      <svg
+        class="pt-1 w-6 h-6"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+          clip-rule="evenodd"
+        ></path>
+      </svg>
+      <p class="flex flex-col max-w-xs text-[15px]">
+        <strong class="text-base font-semibold">
+          <%= flash[:alert_title] %>
+        </strong>
         <%= flash[:alert_message] %>
       </p>
     </div>
@@ -56,10 +63,18 @@
       data-dismiss="alert"
       aria-label="Close"
       class="
-        dark:text-gray-100
+        p-1
+        rounded-full
+        text-red-800
+        dark:text-gray-200
+        hover:text-red-500
+        dark:hover:text-gray-300
+        focus-visible:text-red-600
+        dark:focus-visible:text-gray-50
         focus-visible:outline-2
         focus-visible:outline-dashed
-        focus-visible:outline-current
+        focus-visible:outline-red-600
+        dark:focus-visible:outline-gray-100
       "
       onclick="this.parentElement.remove()"
     >
@@ -70,10 +85,7 @@
         viewBox="0 0 24 24"
         stroke="currentColor"
       >
-        <path
-          stroke-width="2"
-          d="M6 18L18 6M6 6l12 12"
-        />
+        <path stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
       </svg>
     </button>
   </div>
