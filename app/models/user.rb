@@ -3,6 +3,8 @@
 # password: string virtual
 # password_confirmation: string virtual
 class User < ApplicationRecord
+  has_many :twitter_accounts, dependent: :destroy
+
   has_secure_password
 
   validates :email, presence: true, uniqueness: true, format: {
